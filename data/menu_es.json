@@ -1,0 +1,74 @@
+[
+   {
+    "id": 1,
+    "imagen": "img/TablaEntrantes.jpg",
+    "titulo": "Variedad De Entrantes Para Compartir",
+    "orden":"Entrante",
+    "descripcion": "Tabla de quesos.",
+    "precio": 9
+  },
+  {
+    "id": 2,
+    "imagen": "img/GiozasVapor.jpg",
+    "titulo": "Giozas Caseras",
+    "orden":"Entrante",
+    "descripcion": "Giozas de cerdo al vapor con sesamo.",
+    "precio": 9
+  },
+  {
+    "id": 3,
+    "imagen": "img/salmon.jpg",
+    "titulo": "Salmón Noruego",
+    "orden":"primero",
+    "descripcion": "Salmón a baja temperatura con emulsión cítrica.",
+    "precio": 22.5
+  },
+  {
+    "id": 4,
+    "imagen": "img/rissotoGambas.jpg",
+    "titulo": "Risotto",
+    "orden":"primero",
+    "descripcion": "Arroz meloso con gambas.",
+    "precio": 18
+  },
+  {
+    "id": 5,
+    "imagen": "img/PolloAsado.jpg",
+    "titulo": "Pollo Asado Campero",
+    "orden":"primero",
+    "descripcion": "Pollo asado con verduras.",
+    "precio": 15
+  },
+  {
+    "id": 6,
+    "imagen": "img/salmon2.jpg",
+    "titulo": "Salmon al punto",
+    "orden":"Segundo",
+    "descripcion": "Salmon horneado a baja temperatura.",
+    "precio": 18
+  },
+   {
+    "id":7,
+    "imagen": "img/BurguerPunto.jpg",
+    "titulo": "Hamburguesa No Apta Para Veganos",
+    "orden":"Segundo",
+    "descripcion": "Hamburguesa de ternera.",
+    "precio": 20
+  },
+  {
+    "id": 8,
+    "imagen": "img/FrutosBosque.jpg",
+    "titulo": "Frutos Del Bosque Salvajes Con Estilo",
+    "orden":"Postre",
+    "descripcion": "Frutos del bosque.",
+    "precio": 6
+  },
+  {
+    "id": 9,
+    "imagen": "img/ArrozLecheFruta.jpg",
+    "titulo": "Arroz Con Leche Casero",
+    "orden":"Postre",
+    "descripcion": "Arroz con leche y frutas de temporada.",
+    "precio": 10
+  }
+]

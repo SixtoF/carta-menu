@@ -1,0 +1,134 @@
+:root{
+  --bg:#0f1115;
+  --card:#171a21;
+  --texto:#e9edf1;
+  --muted:#aab3bd;
+  --primario:#ffb347;
+  --borde:#2a2f3a;
+  --error:#ff4d4d;
+  --sombra: 0 10px 25px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui, Segoe UI, Arial;
+  color:var(--texto);
+  background: url("../img/fondo2.webp") center / cover fixed;
+  background-color: var(--bg);
+}
+
+.cabecera{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem 1.2rem; border-bottom:1px solid var(--borde)
+}
+
+.acciones{display:flex; gap:.6rem; align-items:center}
+
+.btn{
+  cursor:pointer; border:1px solid var(--borde);
+  background:transparent; color:var(--texto);
+  padding:.6rem .9rem; border-radius:10px
+}
+.btn:focus{outline:2px solid var(--primario); outline-offset:2px}
+
+.btn-primario{
+  background:var(--primario); color:#111; border-color:transparent; font-weight:700
+}
+
+.contenedor{max-width:1100px; margin:0 auto; padding:1rem}
+.estado{min-height:22px; color:var(--muted); margin:.6rem 0}
+
+.lista-platos{display:flex; flex-direction:column; gap:1.2rem}
+
+/* Tarjeta */
+.card-plato{
+  background: rgba(23, 26, 33, 0.88);
+  border: 1px solid rgba(42, 47, 58, 0.8);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  padding:1rem;
+}
+
+.card-contenido{
+  display:grid;
+  gap:1rem;
+  align-items:start;
+  grid-template-columns:1fr;
+}
+
+.card-imagen img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+}
+
+.card-texto h2{margin:.2rem 0 .3rem 0; font-size:1.25rem}
+.card-texto p{margin:.2rem 0 .8rem 0; color:var(--muted); line-height:1.4}
+.card-precio{font-weight:800; font-size:1.1rem}
+
+.card-acciones{display:flex; gap:.5rem; margin-top:.8rem}
+.btn-icono{width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center}
+
+@media (min-width: 900px){
+  .card-contenido{grid-template-columns: 1.1fr .9fr;}
+  .card-plato[data-posicion="par"] .card-imagen{order:1}
+  .card-plato[data-posicion="par"] .card-texto{order:2}
+  .card-plato[data-posicion="impar"] .card-texto{order:1}
+  .card-plato[data-posicion="impar"] .card-imagen{order:2}
+  .card-imagen img{height:260px}
+}
+
+.error{color:var(--error); min-height:18px}
+.invalido{border-color:var(--error) !important}
+
+.modal{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; place-items:center; padding:1rem}
+.modal.abierto{display:grid}
+.modal-contenido{
+  width:min(560px, 100%);
+  background:var(--card);
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:1rem;
+  box-shadow:var(--sombra)
+}
+
+.campo{display:flex; flex-direction:column; gap:.35rem; margin:.8rem 0}
+input,textarea{
+  background:#0c0e12; color:var(--texto);
+  border:1px solid var(--borde);
+  border-radius:10px; padding:.65rem
+}
+input:focus,textarea:focus{outline:2px solid var(--primario); outline-offset:1px}
+
+.botonera{display:flex; justify-content:flex-end; gap:.6rem; margin-top:1rem}
+
+.toast{
+  position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+  background:var(--card); border:1px solid var(--borde);
+  border-radius:14px; padding:.75rem 1rem; box-shadow:var(--sombra);
+  display:none; gap:.8rem; align-items:center;
+}
+.toast.mostrar{display:flex}
+.toast button{border:none; background:transparent; color:var(--primario); font-weight:800; cursor:pointer}
+
+/* ===== Accesibilidad ===== */
+.solo-lectores{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.card-imagen:focus{
+  outline: 2px solid var(--primario);
+  outline-offset: 4px;
+  border-radius: 14px;
+}

@@ -1,0 +1,74 @@
+[
+  {
+  "id": 1,
+  "imagen": "img/TablaEntrantes.jpg",
+  "titulo": "Assorted Starters to Share",
+  "orden": "Starter",
+  "descripcion": "Cheese platter.",
+  "precio": 9
+  },
+  {
+  "id": 2,
+  "imagen": "img/GiozasVapor.jpg",
+  "titulo": "Homemade Gyozas",
+  "orden": "Starter",
+  "descripcion": "Steamed pork gyozas with sesame.",
+  "precio": 9
+},
+  {
+    "id": 3,
+    "imagen": "img/salmon.jpg",
+    "titulo": "Norwegian Salmon",
+    "orden":"First",
+    "descripcion": "Slow-cooked salmon with citrus emulsion.",
+    "precio": 22.5
+  },
+  {
+    "id": 4,
+    "imagen": "img/rissotoGambas.jpg",
+    "titulo": "Risotto",
+    "orden":"First",
+    "descripcion": "Creamy rice with prawns.",
+    "precio": 18
+  },
+  {
+  "id": 5,
+  "imagen": "img/PolloAsado.jpg",
+  "titulo": "Free-Range Roasted Chicken",
+  "orden": "First",
+  "descripcion": "Roasted chicken served with vegetables.",
+  "precio": 15
+  },
+  {
+    "id":6,
+    "imagen": "img/salmon.jpg",
+    "titulo": "Salmon",
+    "orden":"Second",
+    "descripcion": "Slow-cooked salmon.",
+    "precio": 22.5
+  },
+  {
+  "id": 7,
+  "imagen": "img/BurguerPunto.jpg",
+  "titulo": "Beef Burger (Not Suitable for Vegans)",
+  "orden": "Second",
+  "descripcion": "Beef burger.",
+  "precio": 20
+},
+  {
+  "id": 8,
+  "imagen": "img/FrutosBosque.jpg",
+  "titulo": "Wild Forest Berries",
+  "orden": "Dessert",
+  "descripcion": "Assorted wild forest berries.",
+  "precio": 6
+},
+{
+  "id": 9,
+  "imagen": "img/ArrozLecheFruta.jpg",
+  "titulo": "Homemade Rice Pudding",
+  "orden": "Dessert",
+  "descripcion": "Rice pudding with seasonal fruits.",
+  "precio": 10
+}
+]
