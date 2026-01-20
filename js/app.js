@@ -109,7 +109,12 @@ function cargarMenu(idioma) {
     dataType: "json"
   })
     .done(function (data) {
-      platos = data;
+      // Normalizamos orden al cargar (limpia datos antiguos con mayúsculas)
+      platos = data.map(p => ({
+        ...p,
+        orden: normalizarOrden(p.orden)
+      }));
+
       $("#estadoCarga").text("");
       mostrarPorOrdenDinamico(platos);
     })
@@ -201,13 +206,22 @@ function deshacerBorrado() {
   mostrarToast("" + t("deshacer"));
 }
 
+//ordena platos nuevos segun tipo
+function normalizarOrden(valor) {
+  return String(valor || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // quita acentos
+}
+
 // =========================
 // FORM + VALIDACIÓN
 // =========================
 function obtenerDatosFormulario() {
   return {
     titulo: $("#inputTitulo").val().trim(),
-    orden: $("#inputOrden").val().trim().toLowerCase(),
+    orden: normalizarOrden($("#inputOrden").val()),
     descripcion: $("#inputDescripcion").val().trim(),
     precio: Number($("#inputPrecio").val()),
     imagen: $("#inputImagen").val().trim()
@@ -359,16 +373,19 @@ function mostrarPorOrdenDinamico(platos) {
   const contenedor = document.getElementById("listaPlatos");
   contenedor.innerHTML = "";
 
-  const tipos = [...new Set(platos.map(p => p.orden))];
+  const ordenSecciones = ["entrante", "primero", "segundo", "postre"];
   let contador = 0;
 
-  tipos.forEach(tipo => {
+  ordenSecciones.forEach(tipo => {
+    const platosDeTipo = platos.filter(p => normalizarOrden(p.orden) === tipo);
+    if (platosDeTipo.length === 0) return;
+
     const titulo = document.createElement("h2");
     titulo.textContent = tipo.toUpperCase();
     titulo.style.margin = "1rem 0";
     contenedor.appendChild(titulo);
 
-    platos.filter(p => p.orden === tipo).forEach(p => {
+    platosDeTipo.forEach(p => {
       const posicion = (contador % 2 === 0) ? "par" : "impar";
       contador++;
 
@@ -377,11 +394,8 @@ function mostrarPorOrdenDinamico(platos) {
       card.dataset.id = p.id;
       card.dataset.posicion = posicion;
 
-      //Lee toda la tarjeta (título + desc + precio)
-      const textoTarjeta =
-        `Plato ${p.titulo}. ${p.descripcion}. Precio ${formatearPrecio(p.precio)}.`;
-
-      //Lee la foto si tabulas a la imagen
+      // Accesibilidad: lee toda la tarjeta
+      const textoTarjeta = `Plato ${p.titulo}. ${p.descripcion}. Precio ${formatearPrecio(p.precio)}.`;
       const textoImagen = `Fotografía del plato ${p.titulo}.`;
 
       card.setAttribute("tabindex", "0");
