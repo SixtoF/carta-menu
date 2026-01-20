@@ -207,7 +207,7 @@ function deshacerBorrado() {
 function obtenerDatosFormulario() {
   return {
     titulo: $("#inputTitulo").val().trim(),
-    orden: $("#inputOrden").val().trim(),
+    orden: $("#inputOrden").val().trim().toLowerCase(),
     descripcion: $("#inputDescripcion").val().trim(),
     precio: Number($("#inputPrecio").val()),
     imagen: $("#inputImagen").val().trim()
