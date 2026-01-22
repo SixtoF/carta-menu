@@ -13,6 +13,7 @@ let platos = [];
 let idEditando = null;
 let ultimoBorrado = null;
 let temporizadorDeshacer = null;
+let temaClaro = false;
 
 // =========================
 // TEXTOS i18n (UI fija)
@@ -528,10 +529,29 @@ function mostrarPorOrdenDinamico(platos) {
       `;
 
       contenedor.appendChild(card);
+
+      if (temaClaro) {
+        $(card).css("background-color", "white");
+      }
+
     });
   });
 }
 
+
+//Tema boton
+$("#btnTema").on("click", function () {
+  const body = $("body");
+  temaClaro = !temaClaro;
+  if (temaClaro) {
+    body.removeClass("tema-oscuro").css("color", "green");
+  } else {
+    body.addClass("tema-oscuro").css("color", "var(--texto)");
+  }
+
+  // Aplica a todas las cartas
+  $(".card-plato").css("background-color", temaClaro ? "white" : "rgba(23, 26, 33, 0.88)");
+});
 
 /*
 // =========================
