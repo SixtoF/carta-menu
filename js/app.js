@@ -16,7 +16,7 @@ let temporizadorDeshacer = null;
 let temaClaro = false;
 
 // =========================
-// TEXTOS i18n (UI fija)
+// TEXTOS i18n
 // =========================
 const textos = {
   es: {
@@ -82,7 +82,7 @@ const titulosSeccion = {
 };
 
 // =========================
-// ARRANQUE
+// ARRANCAR IDIOMA
 // =========================
 $(function () {
   aplicarTextosUI();
@@ -200,7 +200,7 @@ async function guardarPlatoAPI() {
       lang: idiomaActual,
       sync: "both",
       dish: JSON.stringify({
-        id: idEditando, // null => GAS asigna
+        id: idEditando, // null - GAS asigna
         ...platoFormulario
       })
     });
@@ -216,7 +216,7 @@ async function guardarPlatoAPI() {
 }
 
 async function borrarPlatoAPI(id) {
-  // UX optimista (visual rápido)
+  // UX optimista (visual rapida)
   const indice = platos.findIndex(p => Number(p.id) === Number(id));
   if (indice === -1) return;
 
@@ -245,7 +245,7 @@ async function borrarPlatoAPI(id) {
   }
 }
 
-// Deshacer solo visual
+// Deshacer solo visualmente
 function deshacerBorrado() {
   deshacerBorradoLocal();
 }
@@ -296,7 +296,7 @@ function cerrarModal() {
 }
 
 // =========================
-// FORM + VALIDACIÓN
+// FORMULARIO + VALIDACIÓN
 // =========================
 function obtenerDatosFormulario() {
   return {
@@ -332,7 +332,7 @@ function validarFormulario(plato) {
     ok = false;
   }
 
-  // IMPORTANTE: tus imágenes son .jpg/.webp etc. Esto valida bien.
+  // IMPORTANTE:imgenes son .jpg/.webp etc | validacion .
   if (!/^img\/.+\.(jpg|jpeg|png|webp)$/i.test(plato.imagen)) {
     marcarError("#inputImagen", "#errorImagen", t("errImagen"));
     ok = false;
@@ -352,7 +352,7 @@ function limpiarErrores() {
   $(".error").text("");
 }
 
-// Normaliza orden (quita acentos + minúsculas)
+// Normaliza orden (quita acentos y minusculas)
 function normalizarOrden(valor) {
   return String(valor || "")
     .trim()
@@ -456,7 +456,7 @@ function escapeHtml(texto) {
 }
 
 // =========================
-// MOSTRAR POR ORDEN (como tu diseño)
+// MOSTRAR POR ORDEN
 // =========================
 function mostrarPorOrdenDinamico(platos) {
   const contenedor = document.getElementById("listaPlatos");
@@ -554,6 +554,7 @@ $("#btnTema").on("click", function () {
 });
 
 /*
+//Codigo anterior solo funciona en local Y GithubPages pero no actualiza ningun dato
 // =========================
 // ESTADO GLOBAL
 // =========================
@@ -876,7 +877,7 @@ function mostrarToastConDeshacer(mensaje, textoBoton) {
 }
 
 // =========================
-// ATAJOS (Ctrl+Shift+Plus)
+// ATAJOS (Ctrl+Shift+ +)
 // =========================
 function configurarAtajosTeclado() {
   $(document).on("keydown", function (e) {
